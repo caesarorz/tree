@@ -1,0 +1,17 @@
+{% load static %}
+
+	<header>
+		<div class="container-fluid position-relative no-side-padding">
+
+			<a href="#" class="logo"><img src="{% static 'images/logo.jpeg' %}" alt="Logo Image"></a>
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li><a href=" {% url 'home_page' %} ">Inicio</a></li>
+				<li><a href=" {% url 'about_page' %} ">Quienes Somos</a></li>
+			</ul><!-- main-menu -->
+
+
+		</div><!-- conatiner -->
+	</header>
