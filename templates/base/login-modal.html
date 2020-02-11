@@ -1,0 +1,29 @@
+
+
+<div id="login-modal-id" class="modal">
+  
+  <form name="loginForm" id="loginModalForm" class="modal-content animate" action="{% url 'accounts:login' %}" method="POST"> {% csrf_token %}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('login-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <h4>Ingresar</h4>
+      <p>Ingresa tus datos para entrar. Si no Registrate <button class="btn-remove btn-auto btn-sm" href="#">Aqui</button></p>
+      <hr>
+      <label for="id_email"><b>Usuario/Correo</b></label>
+      <input type="text" placeholder="Escriba correo" name="email" value="" required id="id_email"> 
+      <label for="id_password"><b>Contraseña</b></label>
+      <input type="password" placeholder="Escriba contraseña" name="password" required id="id_password"> 
+      <button class="amado-btn" type="submit">Entrar</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Recuerdame
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('login-modal-id').style.display='none'" class="cancelbtn">Cancelar</button>
+      <span class="psw">Olvidó <a href="#">contraseña?</a></span>
+    </div>
+  </form>
+</div>

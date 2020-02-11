@@ -18,17 +18,20 @@ from django.urls import path, re_path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView
 
 from home.views import home_page
 from tree.views import detail_view, TreeListView, TreeDetailView, TreeApprovedListView
 from aboutus.views import about
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page, name='home_page'),
+    path('account/', include('accounts.urls')),
     path('about/', about, name='about_page'),
+    path('logout', LogoutView.as_view(), name='logout'),
     path('detail/<int:pk>/', TreeDetailView.as_view(), name='tree_detail'),
-    # re_path(r'^detail/(?P<pk>)/$', TreeDetailView.as_view()),
     path('approved-list/', TreeApprovedListView.as_view()),
     path('list/', TreeListView.as_view()),
 ]

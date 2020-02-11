@@ -13,7 +13,7 @@
 
 
 	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	{% comment %} <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"> {% endcomment %}
 
 	<!-- Stylesheets -->
 	{% include "css.html" %}
@@ -32,6 +32,9 @@
 	{% endblock content %}
 
 	{% include "footer.html" %}
+
+    {% include 'base/register-modal.html' %}
+    {% include 'base/login-modal.html' %} 
 
 	<!-- SCRIPTS -->
 	{% include "js.html" %}

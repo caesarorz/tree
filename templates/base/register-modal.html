@@ -1,0 +1,35 @@
+<div id="register-modal-id" class="modal">
+
+  <form id="registerModalForm" class="modal-content animate" action=" {% url 'accounts:register' %} " method="POST"> {% csrf_token %}
+    <div class="imgcontainer">
+      {% comment %} <span onclick="document.getElementById('login-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span> {% endcomment %}
+        <span onclick="document.getElementById('register-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
+      {% comment %} <img src="img_avatar2.png" alt="Avatar" class="avatar"> {% endcomment %}
+    </div>
+
+    <div class="container">
+      <h4>Registrate Ahora</h4>
+      <p>Por favor llena el formulario para registrarte.</p>
+      <hr>
+      <label for="id_email"><b>Correo</b></label>
+      <input type="text" placeholder="Enter Email" name="email" value="" required id="id_email">
+
+      <label for="id_password"><b>Contraseña</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required id="id_password">
+
+      <label for="id_password2"><b>Repetir Contraseña</b></label>
+      <input type="password" placeholder="Repeat Password" name="password2" required id="id_password2">
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Recordarme
+      </label>
+
+      <p>Al crear tu cuenta, estas de acuerdo con <a href="#" style="color:dodgerblue">Términos & Privacidad</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('register-modal-id').style.display='none'" class="signup-cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Registrate</button>
+      </div>
+    </div>
+  </form>
+</div>
