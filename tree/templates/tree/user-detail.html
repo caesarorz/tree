@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<section class="blog-area section">
+		<div class="container">
+			<div class="row">
+            {% for tree in user.tree_set.all %}
+                {% for tree_image in tree.treeimage_set.all %}
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ tree_image.image.url }}" alt="Card image cap">
+                        <div class="card-header">{{ tree_image.title }}</div>
+                        <div class="card-body">
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr>
+            {% endfor %}
+			</div><!-- row -->
+
+            <form method="POST" action="{% url 'upload' %} " enctype="multipart/form-data"> {% csrf_token %}
+                <input type="file" name="document">
+                <button type="submit">Upload</button>
+                {% comment %} <a class="load-more-btn" href="#"><b>AGREGAR FOTO</b></a> {% endcomment %}
+            </form>
+ 			<div class="row">
+                {% if image %}
+                    <p>Uploaded file <a href="{{ image }}"> {{ image }} </a></p>
+                {% endif %}  
+             </div>     
+		</div><!-- container -->
+	</section><!-- section -->
+
+{% endblock content %}
+

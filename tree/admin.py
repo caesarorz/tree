@@ -6,10 +6,10 @@ class TreeImageInline(admin.TabularInline):
     model = TreeImage
     extra = 0
     max_num = 3
-    fields = ('title', 'image',)
+    fields = ('image',)
 
 class TreeAdmin(admin.ModelAdmin):
-    list_display = ['__str__',]
+    list_display = ['__str__', 'user']
     inlines = [TreeImageInline]
 
     class Meta:

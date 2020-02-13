@@ -1,7 +1,10 @@
 import random
 import os
+from django.conf import settings
 from django.urls import reverse
 from django.db import models
+
+User = settings.AUTH_USER_MODEL
 
 
 def get_filename_ext(filepath):
@@ -41,6 +44,7 @@ class TreeManager(models.Manager):
     
 class Tree(models.Model):
     title = models.CharField(max_length=120)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     description = models.TextField()
     location = models.CharField(max_length=120)
     active = models.BooleanField(default=True)
@@ -58,16 +62,12 @@ class Tree(models.Model):
 
 class TreeImage(models.Model):
     tree = models.ForeignKey(Tree, on_delete=models.CASCADE)
-    title = models.CharField(max_length=120)
-    featured = models.BooleanField(default=False)
+    # title = models.CharField(max_length=120)
     timestamp = models.DateTimeField(auto_now_add=True)
-    active_html = models.BooleanField(default=False, null=True, blank=True)
-    data_slide_html = models.PositiveSmallIntegerField(null=True, blank=True)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
-    alt_carousel = models.CharField(max_length=120, null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return self.tree.title
 
 
     

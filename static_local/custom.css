@@ -11,6 +11,11 @@ header .main-menu {
   font-size: 20px;
 }
 
+.ion-android-close {
+  font-size: 2rem;
+  color: red;
+}
+
 /* Register and login Styles */
 
 /* Full-width input fields */
