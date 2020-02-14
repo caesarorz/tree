@@ -1,0 +1,16 @@
+    <div class="col-lg-4 col-md-6 mx-auto"> 
+    
+                <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data"> {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">Nombre:</label>
+                <input type="text" class="form-control" name="title" maxlength="120" required id="id_title" placeholder="Nombre de su arbol">
+                <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="id_location">Lugar:</label>
+                <input type="text" class="form-control" name="location" maxlength="120" required id="id_location" placeholder="Localizacion GPS">
+                <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <textarea class="form-control" name="description" aria-label="With textarea" placeholder="Describa el arbol. Maximo 150 caracteres."></textarea>
+            </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+    
+    </div>

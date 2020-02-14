@@ -1,0 +1,5 @@
+<form method="POST" action="{% url 'delete_image_tree' %}" enctype="multipart/form-data"> {% csrf_token %}
+    <input type="hidden" id="{{ tree_id }}" name="image_id" value="{{ tree_id }}">
+    <button type="submit" class="btn btn-outline-danger btn-sm"><i class="ion-android-close"></i></button>
+    <button type="submit" class="btn btn-outline-danger btn-sm"><span aria-hidden="true">&times;</span></button>
+</form>

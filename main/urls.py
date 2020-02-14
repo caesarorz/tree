@@ -27,8 +27,11 @@ from tree.views import (detail_view,
                         TreeApprovedListView, 
                         tree_user,
                         upload,
+                        upload_image,
+                        delete_image_tree,
                         )
 from aboutus.views import about
+from dash.views import list_users
 
 
 urlpatterns = [
@@ -41,7 +44,10 @@ urlpatterns = [
     path('detail/<int:pk>/', TreeDetailView.as_view(), name='tree_detail'),
     path('approved-list/', TreeApprovedListView.as_view()),
     path('list/', TreeListView.as_view()),
-    path('upload/', upload, name='upload')
+    path('upload/', upload, name='upload'),
+    path('upload-image-tree/', upload_image, name='upload_image_tree'),
+    path('delete-image-tree/', delete_image_tree, name='delete_image_tree'),
+    path('users/', list_users, name='list_users'),
 ]
 
 if settings.DEBUG:

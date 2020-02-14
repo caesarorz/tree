@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'aboutus',
     'accounts',
+    'dash',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

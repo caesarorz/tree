@@ -18,41 +18,31 @@
 								</div>
 							<div class="blog-info">
 								<ul class="post-footer">
-									<li><a href="#"><i class="ion-android-close"></i></a></li>
+									{% comment %} <li><a href="#"><i class="ion-android-close"></i></a></li>							 {% endcomment %}
+									<li><a href="#">
+                                        {% include "tree/snippets/delete_image_tree.html" with tree_id=tree.id %}
+                                        
+                                    </a></li>									
 								</ul>
 							</div><!-- blog-info -->
 						</div><!-- single-post -->
 					</div><!-- card -->
                 </div><!-- col-lg-4 col-md-6 -->
-            {% endfor %}
-                
-            
+
+            {% endfor %}   
         {% else %}
             {% include "tree/snippets/upload-image.html" %}
         {% endif %}
     {% else %}
-            <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data"> {% csrf_token %}
-            <div class="form-group">
-                <label for="id_title">Nombre:</label>
-                <input type="text" class="form-control" name="title" maxlength="120" required id="id_title" placeholder="Nombre de su arbol">
-                <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                <label for="id_location">Lugar:</label>
-                <input type="text" class="form-control" name="location" maxlength="120" required id="id_location" placeholder="Localizacion GPS">
-                <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                <textarea class="form-control" name="description" aria-label="With textarea" placeholder="Describa el arbol. Maximo 150 caracteres."></textarea>
-            </div>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </form>
-
+            {% include "tree/snippets/tree-description.html" %}
     {% endif %}
 {% else %}
 
-    <p>
-    
-    Para participar 
-    1.
-    
-    </p>
+                <div class="col mx-auto">
+					<div class="card h-100 mx-auto">
+                        {% include "tree/snippets/participate_steps.html" %}
+                    </div>
+                </div>        
 
 {% endif %}
         </div>
